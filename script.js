@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initFireflies();
     
     // PHOTO FEATURES
-    initPhotoGallery();
+    initPhotoAlbum();
     initMemoryWall();
     initCarousel();
 });
@@ -779,8 +779,39 @@ function initFireflies() {
 // ==========================================
 // PHOTO FEATURE 1: GALLERY LOVE STORY
 // ==========================================
-function initPhotoGallery() {
-    const gallery = document.getElementById('timelineGallery');
+// ==========================================
+// PHOTO ALBUM FEATURE
+// ==========================================
+function initPhotoAlbum() {
+    console.log('initPhotoAlbum called');
+    
+    const openBtn = document.getElementById('openAlbumBtn');
+    const closeBtn = document.getElementById('closeAlbumBtn');
+    const albumViewer = document.getElementById('albumViewer');
+    const albumBook = document.getElementById('albumBook');
+    const prevBtn = document.getElementById('prevPage');
+    const nextBtn = document.getElementById('nextPage');
+    const pageCounter = document.getElementById('pageCounter');
+    
+    console.log('Elements found:', {
+        openBtn: !!openBtn,
+        closeBtn: !!closeBtn,
+        albumViewer: !!albumViewer,
+        albumBook: !!albumBook
+    });
+    
+    // Check if elements exist
+    if (!openBtn || !albumViewer || !albumBook) {
+        console.error('Album elements not found!', {
+            openBtn,
+            albumViewer,
+            albumBook
+        });
+        return;
+    }
+    
+    let currentPage = 0;
+    const totalPages = 11; // 21 images, 2 per page (except last has 1)
     
     // Romantic captions for each image
     const captions = [
@@ -807,46 +838,110 @@ function initPhotoGallery() {
         "Forever grateful this moment happened with you 🙏✨"
     ];
     
-    for (let i = 1; i <= 21; i++) {
-        const item = document.createElement('div');
-        item.classList.add('timeline-item');
+    // Create album pages
+    for (let pageNum = 0; pageNum < totalPages; pageNum++) {
+        const page = document.createElement('div');
+        page.className = 'album-page';
+        page.dataset.page = pageNum;
         
-        item.innerHTML = `
-            <div class="timeline-image">
-                <img src="image${i}.jpeg" alt="Memory ${i}" onerror="this.style.display='none'">
-            </div>
-            <div class="timeline-content">
-                <div class="timeline-date">Memory ${i}</div>
-                <div class="timeline-caption">${captions[i-1]}</div>
-            </div>
-        `;
+        const leftIndex = pageNum * 2;
+        const rightIndex = leftIndex + 1;
         
-        gallery.appendChild(item);
+        // Left half
+        if (leftIndex < 21) {
+            const leftHalf = document.createElement('div');
+            leftHalf.className = 'page-half left';
+            leftHalf.innerHTML = `
+                <div class="album-photo">
+                    <img src="image${leftIndex + 1}.jpeg" alt="Memory ${leftIndex + 1}">
+                </div>
+                <div class="photo-caption">${captions[leftIndex]}</div>
+            `;
+            page.appendChild(leftHalf);
+        }
+        
+        // Right half
+        if (rightIndex < 21) {
+            const rightHalf = document.createElement('div');
+            rightHalf.className = 'page-half';
+            rightHalf.innerHTML = `
+                <div class="album-photo">
+                    <img src="image${rightIndex + 1}.jpeg" alt="Memory ${rightIndex + 1}">
+                </div>
+                <div class="photo-caption">${captions[rightIndex]}</div>
+            `;
+            page.appendChild(rightHalf);
+        }
+        
+        albumBook.appendChild(page);
     }
     
-    // Make first few items visible immediately (no delay)
-    const items = document.querySelectorAll('.timeline-item');
-    items.forEach((item, index) => {
-        if (index < 5) {
-            item.classList.add('visible');
+    // Show first page
+    updatePage();
+    
+    // Event listeners with immediate testing
+    if (openBtn) {
+        openBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Open button clicked!');
+            console.log('Adding active class to:', albumViewer);
+            albumViewer.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            console.log('Album viewer classes:', albumViewer.className);
+        });
+        console.log('Click listener attached to open button');
+    }
+    
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Close button clicked!');
+            albumViewer.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
+    
+    // Close on ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && albumViewer.classList.contains('active')) {
+            albumViewer.classList.remove('active');
+            document.body.style.overflow = '';
         }
     });
     
-    // Animate on scroll with lower threshold
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { 
-        threshold: 0.01,
-        rootMargin: '50px'
+    prevBtn.addEventListener('click', () => {
+        if (currentPage > 0) {
+            currentPage--;
+            updatePage();
+        }
     });
     
-    document.querySelectorAll('.timeline-item').forEach(item => {
-        observer.observe(item);
+    nextBtn.addEventListener('click', () => {
+        if (currentPage < totalPages - 1) {
+            currentPage++;
+            updatePage();
+        }
     });
+    
+    function updatePage() {
+        const pages = document.querySelectorAll('.album-page');
+        
+        pages.forEach((page, index) => {
+            page.classList.remove('active', 'exit-left', 'exit-right');
+            
+            if (index === currentPage) {
+                page.classList.add('active');
+            } else if (index < currentPage) {
+                page.classList.add('exit-left');
+            } else {
+                page.classList.add('exit-right');
+            }
+        });
+        
+        pageCounter.textContent = `Page ${currentPage + 1} of ${totalPages}`;
+        prevBtn.disabled = currentPage === 0;
+        nextBtn.disabled = currentPage === totalPages - 1;
+    }
 }
 
 // ==========================================

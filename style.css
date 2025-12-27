@@ -891,6 +891,68 @@ section {
     .promise-text h3 {
         font-size: 1.2rem;
     }
+
+    .album-title {
+        font-size: 2.5rem;
+    }
+
+    .album-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .album-book {
+        width: 95%;
+        height: auto;
+        max-height: 75vh;
+    }
+
+    .album-page {
+        flex-direction: column;
+        padding: 15px;
+        overflow-y: auto;
+    }
+
+    .page-half {
+        padding: 15px 10px;
+        border-right: none;
+        width: 100%;
+    }
+
+    .page-half.left {
+        border-right: none;
+        border-bottom: 2px solid rgba(212, 80, 138, 0.2);
+        padding-bottom: 25px;
+        margin-bottom: 15px;
+    }
+
+    .album-photo {
+        max-width: 100%;
+        height: 280px;
+        margin: 0 auto 15px;
+    }
+
+    .photo-caption {
+        font-size: 1rem;
+        padding: 0 10px;
+        line-height: 1.5;
+    }
+
+    .album-nav {
+        bottom: 10px;
+        gap: 10px;
+        width: 95%;
+        padding: 0 10px;
+    }
+
+    .album-nav-btn {
+        padding: 10px 18px;
+        font-size: 0.85rem;
+    }
+
+    .page-counter {
+        font-size: 0.9rem;
+        min-width: 90px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -933,6 +995,90 @@ section {
 
     .final-text p {
         font-size: 1rem;
+    }
+
+    .album-cover {
+        padding: 60px 30px;
+    }
+
+    .album-title {
+        font-size: 2rem;
+    }
+
+    .album-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .album-heart {
+        font-size: 60px;
+    }
+
+    .open-album-btn {
+        padding: 15px 35px;
+        font-size: 1.1rem;
+    }
+
+    .album-book {
+        width: 98%;
+        height: auto;
+        max-height: 80vh;
+    }
+
+    .album-page {
+        padding: 10px;
+    }
+
+    .page-half {
+        padding: 12px 8px;
+    }
+
+    .page-half.left {
+        padding-bottom: 20px;
+        margin-bottom: 12px;
+    }
+
+    .album-photo {
+        height: 200px;
+        margin-bottom: 12px;
+    }
+
+    .photo-caption {
+        font-size: 0.9rem;
+        padding: 0 5px;
+    }
+
+    .close-album-btn {
+        top: -15px;
+        right: -15px;
+        width: 45px;
+        height: 45px;
+        font-size: 28px;
+    }
+
+    .album-nav {
+        bottom: 8px;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .album-nav-btn {
+        padding: 8px 12px;
+        font-size: 0.75rem;
+        min-width: 70px;
+    }
+
+    .page-counter {
+        font-size: 0.85rem;
+        min-width: 80px;
+        order: 3;
+        width: 100%;
+        margin-top: 5px;
+    }
+
+    .page-counter {
+        font-size: 0.95rem;
+        min-width: 100px;
     }
 }
 
@@ -1295,97 +1441,275 @@ section {
 }
 
 /* ==========================================
-   PHOTO FEATURE 1: GALLERY LOVE STORY
+   PHOTO ALBUM SECTION
    ========================================== */
-.photo-gallery-section {
-    background: linear-gradient(135deg, rgba(255, 214, 232, 0.35), rgba(230, 217, 255, 0.35));
-    min-height: auto;
-    padding: 40px 20px 60px;
+.photo-album-section {
+    background: linear-gradient(135deg, rgba(255, 240, 245, 0.6), rgba(230, 217, 255, 0.6));
+    min-height: 100vh;
+    padding: 80px 20px;
 }
 
-.timeline-gallery {
+.album-container {
+    max-width: 1200px;
+    margin: 60px auto 0;
+    position: relative;
+}
+
+.album-cover {
+    background: linear-gradient(135deg, #d4508a, #b83d72);
+    border-radius: 20px;
+    padding: 100px 60px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(212, 80, 138, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.album-cover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.album-title {
+    font-size: 3.5rem;
+    color: white;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    position: relative;
+    z-index: 2;
+}
+
+.album-subtitle {
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.album-heart {
+    font-size: 80px;
+    margin: 30px 0;
+    animation: pulse 2s infinite;
+    position: relative;
+    z-index: 2;
+}
+
+.open-album-btn {
+    background: white;
+    color: #d4508a;
+    border: none;
+    padding: 18px 50px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.open-album-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.album-viewer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    padding: 20px 10px;
+    box-sizing: border-box;
+}
+
+.album-viewer.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.close-album-btn {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    color: white;
+    font-size: 40px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10001;
+}
+
+.close-album-btn:hover {
+    background: white;
+    color: #d4508a;
+    transform: rotate(90deg);
+}
+
+.album-book {
+    width: 90%;
+    max-width: 1000px;
+    height: 70vh;
+    position: relative;
+    perspective: 1500px;
+}
+
+.album-page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    display: flex;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.6s ease;
+    pointer-events: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.album-page.active {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+.album-page.exit-left {
+    transform: translateX(-100%) rotateY(-15deg);
+    opacity: 0;
+}
+
+.album-page.exit-right {
+    transform: translateX(100%) rotateY(15deg);
+    opacity: 0;
+}
+
+.page-half {
+    flex: 1;
+    padding: 40px;
     display: flex;
     flex-direction: column;
-    gap: 80px;
-    margin-top: 60px;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.timeline-item {
-    display: flex;
-    gap: 40px;
     align-items: center;
-    opacity: 1;
-    transform: translateX(0);
-    transition: all 0.8s ease;
-    margin-bottom: 40px;
+    justify-content: center;
 }
 
-/* Only hide items that haven't been marked visible yet AND are after the first 5 */
-.timeline-item:nth-child(n+6):not(.visible) {
-    opacity: 0;
-    transform: translateX(-100px);
+.page-half.left {
+    border-right: 2px solid rgba(212, 80, 138, 0.2);
 }
 
-.timeline-item.visible {
-    opacity: 1;
-    transform: translateX(0);
+/* Custom scrollbar for album pages */
+.album-page::-webkit-scrollbar {
+    width: 8px;
 }
 
-.timeline-item:nth-child(even) {
-    flex-direction: row-reverse;
+.album-page::-webkit-scrollbar-track {
+    background: rgba(212, 80, 138, 0.1);
+    border-radius: 10px;
 }
 
-.timeline-item:nth-child(even):nth-child(n+6):not(.visible) {
-    transform: translateX(100px);
+.album-page::-webkit-scrollbar-thumb {
+    background: rgba(212, 80, 138, 0.5);
+    border-radius: 10px;
 }
 
-.timeline-image {
-    flex: 1;
-    max-width: 500px;
-    min-width: 300px;
+.album-page::-webkit-scrollbar-thumb:hover {
+    background: rgba(212, 80, 138, 0.7);
 }
 
-.timeline-image img {
+.album-photo {
     width: 100%;
-    height: auto;
-    max-height: 450px;
+    max-width: 400px;
+    height: 400px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    margin-bottom: 20px;
+}
+
+.album-photo img {
+    width: 100%;
+    height: 100%;
     object-fit: contain;
-    border-radius: var(--card-radius);
-    box-shadow: var(--soft-shadow);
-    transition: all 0.4s ease;
-    display: block;
+    background: #f5f5f5;
 }
 
-.timeline-image img:hover {
-    transform: scale(1.05);
-    box-shadow: var(--glow-shadow);
-}
-
-.timeline-content {
-    flex: 1;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 35px;
-    border-radius: var(--card-radius);
-    box-shadow: var(--soft-shadow);
-}
-
-.timeline-date {
-    font-size: 0.9rem;
+.photo-caption {
+    text-align: center;
+    font-size: 1.1rem;
     color: #d4508a;
     font-weight: 600;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-style: italic;
+    padding: 0 20px;
+    line-height: 1.6;
 }
 
-.timeline-caption {
-    font-size: 1.3rem;
-    color: var(--text-dark);
-    line-height: 1.8;
-    font-style: italic;
+.album-nav {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.album-nav-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    color: white;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.album-nav-btn:hover {
+    background: white;
+    color: #d4508a;
+    transform: scale(1.05);
+}
+
+.album-nav-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.page-counter {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    min-width: 120px;
+    text-align: center;
 }
 
 /* ==========================================
@@ -1673,19 +1997,6 @@ section {
    RESPONSIVE FOR PHOTO FEATURES
    ========================================== */
 @media (max-width: 768px) {
-    .timeline-item {
-        flex-direction: column !important;
-        text-align: center;
-    }
-    
-    .timeline-image {
-        max-width: 100%;
-    }
-    
-    .timeline-image img {
-        height: 300px;
-    }
-    
     .memory-grid {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         gap: 15px;
