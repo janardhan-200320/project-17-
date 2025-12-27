@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Ragini 💖 - From My Heart to Yours 💗</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💖</text></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated Background Elements -->
+    <div class="floating-hearts" id="floatingHearts"></div>
+    
+    <!-- Background Music -->
+    <audio id="backgroundMusic" loop autoplay preload="auto">
+        <source src="background-music.mp3" type="audio/mpeg">
+    </audio>
+    
+    <!-- Music Toggle -->
+    <button class="music-toggle" id="musicToggle" title="Toggle Music">🔇</button>
+
+    <!-- Section 1: Landing -->
+    <section class="landing-section" id="landing">
+        <div class="landing-content">
+            <div class="heart-icon pulse">💗</div>
+            <h1 class="main-heading">For Ragini 💖</h1>
+            <h2 class="sub-heading">From My Heart to Yours</h2>
+            <p class="subtitle fade-in">This website exists because you matter to me</p>
+            <button class="cta-button" id="startButton">Please read this... 🥺💌</button>
+        </div>
+    </section>
+
+    <!-- Section 2: Apology Letter -->
+    <section class="apology-section" id="apology">
+        <div class="container">
+            <div class="glass-card letter-card">
+                <div class="section-icon">💔➡️❤️</div>
+                <h2 class="section-title">My Heart, My Apology</h2>
+                <div class="letter-content" id="letterContent" data-typewriter="true">
+                    <p>Dear Ragini 💖,</p>
+                    
+                    <p>I'm writing this because words spoken weren't enough, and I needed you to feel how deeply sorry I am. Not just hear it — but feel it. 🥺</p>
+                    
+                    <p>I've been selfish. I chose my own comfort when I should have chosen you. I turned away when you needed me to lean in. I let you carry weight I should have been holding with you. And for that, I am so, so sorry. 💔</p>
+                    
+                    <p>You didn't deserve to feel unhappy. You didn't deserve to feel unheard. You deserved a partner who saw your pain and met it with love — not distance. And I failed you in that. I own that completely.</p>
+                    
+                    <p>I see now how my actions made you feel small when you should have felt cherished. How my silence made you feel alone when you should have felt held. I can't take that back, but I can promise you this: I will never stop learning how to love you better. 🌸</p>
+                    
+                    <p>You are not asking for too much. You never were. You were asking to be seen, to be supported, to matter — and those are the most reasonable, beautiful things a heart can ask for. 💗</p>
+                    
+                    <p>I'm not perfect. I'm still learning. But I'm learning *because of you* — because you're worth every moment of growth, every uncomfortable truth, every step forward.</p>
+                    
+                    <p>I love you. Not in a way that's convenient. But in a way that's willing to change, to listen, to do better. 🫶</p>
+                    
+                    <p>I'm sorry for the hurt. And I'm grateful you're still here to read this.</p>
+                    
+                    <p class="signature">Forever yours, Ragini 💖<br>With all my love 💕</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: My Mistakes Cards -->
+    <section class="mistakes-section" id="mistakes">
+        <div class="container">
+            <h2 class="section-title">Where I Went Wrong 😞</h2>
+            <p class="section-subtitle">Click each card to see my commitment to change</p>
+            
+            <div class="cards-grid">
+                <div class="flip-card" data-mistake="selfish">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="card-icon">💭</div>
+                            <h3>Being Selfish</h3>
+                            <p>Putting myself first</p>
+                            <span class="tap-hint">Tap to see my promise</span>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="card-icon">🫶</div>
+                            <h3>My Promise</h3>
+                            <p>I will choose us over me. Your needs matter just as much as mine, and I'll prove that through my actions every single day.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card" data-mistake="listening">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="card-icon">💭</div>
+                            <h3>Not Listening</h3>
+                            <p>Missing what you needed to say</p>
+                            <span class="tap-hint">Tap to see my promise</span>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="card-icon">👂💖</div>
+                            <h3>My Promise</h3>
+                            <p>I will truly listen — not to respond, but to understand. Your words, your feelings, your heart will always have my full attention.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card" data-mistake="support">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="card-icon">💭</div>
+                            <h3>Not Supporting You</h3>
+                            <p>Leaving you to carry things alone</p>
+                            <span class="tap-hint">Tap to see my promise</span>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="card-icon">🤝💕</div>
+                            <h3>My Promise</h3>
+                            <p>I will be your safe place. When life gets heavy, you won't carry it alone. I'll stand beside you, always.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card" data-mistake="granted">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="card-icon">💭</div>
+                            <h3>Taking You for Granted</h3>
+                            <p>Not seeing your value</p>
+                            <span class="tap-hint">Tap to see my promise</span>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="card-icon">✨💗</div>
+                            <h3>My Promise</h3>
+                            <p>I will cherish you. Every day, I'll remind you how precious you are to me — not just with words, but with love you can feel.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: What You Mean to Me -->
+    <section class="meaning-section" id="meaning">
+        <div class="container">
+            <h2 class="section-title">What You Mean to Me 🌷</h2>
+            <p class="section-subtitle">Click the hearts to reveal my feelings 💖</p>
+            
+            <div class="hearts-grid" id="heartsGrid">
+                <div class="heart-bubble" data-message="You make my world softer and more beautiful 🌸">
+                    <span class="heart-emoji">💖</span>
+                </div>
+                <div class="heart-bubble" data-message="Your happiness is my priority, always 🌟">
+                    <span class="heart-emoji">💕</span>
+                </div>
+                <div class="heart-bubble" data-message="You deserve all the love in the world 🌍💗">
+                    <span class="heart-emoji">💝</span>
+                </div>
+                <div class="heart-bubble" data-message="I'm grateful for every moment with you 🙏✨">
+                    <span class="heart-emoji">💓</span>
+                </div>
+                <div class="heart-bubble" data-message="You are my safe place and my home 🏡💞">
+                    <span class="heart-emoji">💗</span>
+                </div>
+                <div class="heart-bubble" data-message="Your feelings matter more than anything 🫶">
+                    <span class="heart-emoji">💖</span>
+                </div>
+                <div class="heart-bubble" data-message="Thank you for being patient with me 🌺">
+                    <span class="heart-emoji">💕</span>
+                </div>
+                <div class="heart-bubble" data-message="You make me want to be better every day 🌅">
+                    <span class="heart-emoji">💝</span>
+                </div>
+            </div>
+
+            <div class="message-display" id="messageDisplay"></div>
+        </div>
+    </section>
+
+    <!-- NEW: Virtual Wish Jar Section -->
+    <section class="wish-jar-section" id="wishJar">
+        <div class="container">
+            <h2 class="section-title">Messages From My Heart 🏺✨</h2>
+            <p class="section-subtitle">Click the jar to reveal endless sweet messages for you</p>
+            
+            <div class="jar-container">
+                <div class="wish-jar" id="wishJarElement">
+                    <div class="jar-body">🏺</div>
+                    <div class="jar-sparkles">✨</div>
+                    <p class="jar-hint">Tap me!</p>
+                </div>
+                <div class="wish-message" id="wishMessage"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Scratch Cards Section -->
+    <section class="scratch-section" id="scratchCards">
+        <div class="container">
+            <h2 class="section-title">Scratch to Reveal My Heart 💌</h2>
+            <p class="section-subtitle">Use your finger or mouse to scratch and reveal hidden messages</p>
+            
+            <div class="scratch-grid">
+                <div class="scratch-card-wrapper">
+                    <canvas class="scratch-canvas" data-message="You are the most beautiful person I know, inside and out 🌸💖"></canvas>
+                    <div class="scratch-message">You are the most beautiful person I know, inside and out 🌸💖</div>
+                </div>
+                <div class="scratch-card-wrapper">
+                    <canvas class="scratch-canvas" data-message="Thank you for loving me even when I didn't deserve it 🙏💕"></canvas>
+                    <div class="scratch-message">Thank you for loving me even when I didn't deserve it 🙏💕</div>
+                </div>
+                <div class="scratch-card-wrapper">
+                    <canvas class="scratch-canvas" data-message="I promise to be the partner who cherishes your heart every single day 💗✨"></canvas>
+                    <div class="scratch-message">I promise to be the partner who cherishes your heart every single day 💗✨</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Memory Polaroid Stack Section -->
+    <section class="polaroid-section" id="polaroids">
+        <div class="container">
+            <h2 class="section-title">Moments I Treasure 📸💕</h2>
+            <p class="section-subtitle">Click each polaroid to read what these moments mean to me</p>
+            
+            <div class="polaroid-stack" id="polaroidStack">
+                <div class="polaroid" data-memory="1">
+                    <div class="polaroid-photo">
+                        <div class="photo-placeholder">🌅</div>
+                    </div>
+                    <div class="polaroid-caption">Every sunrise reminds me of your warmth</div>
+                </div>
+                <div class="polaroid" data-memory="2">
+                    <div class="polaroid-photo">
+                        <div class="photo-placeholder">💫</div>
+                    </div>
+                    <div class="polaroid-caption">The moment I realized how lucky I am</div>
+                </div>
+                <div class="polaroid" data-memory="3">
+                    <div class="polaroid-photo">
+                        <div class="photo-placeholder">🌙</div>
+                    </div>
+                    <div class="polaroid-caption">Late night talks that made me fall deeper</div>
+                </div>
+                <div class="polaroid" data-memory="4">
+                    <div class="polaroid-photo">
+                        <div class="photo-placeholder">🌸</div>
+                    </div>
+                    <div class="polaroid-caption">Your smile that lights up my entire world</div>
+                </div>
+                <div class="polaroid" data-memory="5">
+                    <div class="polaroid-photo">
+                        <div class="photo-placeholder">💝</div>
+                    </div>
+                    <div class="polaroid-caption">Every small gesture that shows your love</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW FEATURE 1: Photo Gallery Love Story -->
+    <section class="photo-gallery-section" id="photoGallery">
+        <div class="container">
+            <h2 class="section-title">Our Beautiful Journey 💕📸</h2>
+            <p class="section-subtitle">Every moment with you tells a story of love</p>
+            
+            <div class="timeline-gallery" id="timelineGallery">
+                <!-- Images will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW FEATURE 2: Interactive Memory Wall -->
+    <section class="memory-wall-section" id="memoryWall">
+        <div class="container">
+            <h2 class="section-title">Memories That Made My Heart Smile 🖼️💖</h2>
+            <p class="section-subtitle">Click any photo to relive the moment</p>
+            
+            <div class="memory-grid" id="memoryGrid">
+                <!-- Images will be dynamically loaded here -->
+            </div>
+        </div>
+        
+        <!-- Lightbox for enlarged view -->
+        <div class="lightbox" id="lightbox">
+            <button class="lightbox-close" id="lightboxClose">&times;</button>
+            <button class="lightbox-prev" id="lightboxPrev">&#10094;</button>
+            <button class="lightbox-next" id="lightboxNext">&#10095;</button>
+            <img src="" alt="Memory" id="lightboxImage">
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+    </section>
+
+    <!-- NEW FEATURE 3: Carousel Slideshow with Music -->
+    <section class="carousel-section" id="carousel">
+        <div class="container">
+            <h2 class="section-title">Our Love Story in Motion 🎬💗</h2>
+            <p class="section-subtitle">Let the memories play with our song</p>
+            
+            <div class="carousel-container">
+                <div class="carousel-track" id="carouselTrack">
+                    <!-- Images will be dynamically loaded here -->
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-control-btn" id="carouselPrev">&#10094;</button>
+                    <button class="carousel-play-pause" id="carouselPlayPause">⏸</button>
+                    <button class="carousel-control-btn" id="carouselNext">&#10095;</button>
+                </div>
+                <div class="carousel-indicators" id="carouselIndicators"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Promises -->
+    <section class="promises-section" id="promises">
+        <div class="container">
+            <h2 class="section-title">My Promises to You 🤞💞</h2>
+            <p class="section-subtitle">These aren't just words — they're commitments</p>
+            
+            <div class="promises-list">
+                <div class="promise-item" data-delay="0">
+                    <div class="checkbox">✓</div>
+                    <div class="promise-text">
+                        <h3>I will truly listen</h3>
+                        <p>Not just hear, but understand your heart</p>
+                    </div>
+                </div>
+
+                <div class="promise-item" data-delay="1">
+                    <div class="checkbox">✓</div>
+                    <div class="promise-text">
+                        <h3>I will support you emotionally, and in all possible ways to come up in life</h3>
+                        <p>Be present in your joy and your pain</p>
+                    </div>
+                </div>
+
+                <div class="promise-item" data-delay="2">
+                    <div class="checkbox">✓</div>
+                    <div class="promise-text">
+                        <h3>I will choose you every day</h3>
+                        <p>In big ways and small, you'll always matter</p>
+                    </div>
+                </div>
+
+                <div class="promise-item" data-delay="3">
+                    <div class="checkbox">✓</div>
+                    <div class="promise-text">
+                        <h3>We will keep growing</h3>
+                        <p>Learn, change, and become the partner you deserve</p>
+                    </div>
+                </div>
+
+                <div class="promise-item" data-delay="4">
+                    <div class="checkbox">✓</div>
+                    <div class="promise-text">
+                        <h3>I will never take you for granted</h3>
+                        <p>Cherish you today, tomorrow, and always</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Floating Message Clouds -->
+    <section class="clouds-section" id="clouds">
+        <div class="container">
+            <h2 class="section-title">Messages From My Heart ☁️💭</h2>
+            <p class="section-subtitle">Click any cloud to reveal my feelings for you, Ragini 💖</p>
+            
+            <div class="clouds-sky" id="cloudContainer">
+                <!-- Clouds will be dynamically created here -->
+            </div>
+            
+            <div class="cloud-message-display" id="cloudMessageDisplay">
+                <button class="close-cloud-message" id="closeCloudMessage">&times;</button>
+                <div class="cloud-message-icon">💕</div>
+                <p class="cloud-message-text" id="cloudMessageText"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: Forgiveness Interaction -->
+    <section class="forgiveness-section" id="forgiveness">
+        <div class="container">
+            <div class="glass-card forgiveness-card">
+                <div class="section-icon">💌</div>
+                <h2 class="section-title">A Gentle Question</h2>
+                <p class="forgiveness-text">I understand if you need time. There's no pressure — only love and respect for whatever you feel. 🌸</p>
+                
+                <div class="forgiveness-buttons" id="forgivenessButtons">
+                    <button class="forgiveness-btn accept" data-choice="forgive">
+                        <span class="btn-icon">💖</span>
+                        <span class="btn-text">I forgive you</span>
+                    </button>
+                    <button class="forgiveness-btn time" data-choice="time">
+                        <span class="btn-icon">🤍</span>
+                        <span class="btn-text">I need time</span>
+                    </button>
+                </div>
+
+                <div class="response-message" id="responseMessage"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 8: Final Message -->
+    <section class="final-section" id="final">
+        <div class="container">
+            <div class="final-content">
+                <div class="moon-icon">🌙</div>
+                <h2 class="section-title">No Matter What...</h2>
+                <div class="final-text">
+                    <p>Whether you forgive me now, later, or need more time to heal — I respect that completely. 💗</p>
+                    
+                    <p>Your feelings are valid. Your pace is valid. You are valid.</p>
+                    
+                    <p>What matters most is that you know: I see my mistakes, I own them, and I'm committed to growing — not because I expect something in return, but because it's the right thing to do. 🌸</p>
+                    
+                    <p>You deserve a love that feels safe, supportive, and consistent. And whether we rebuild together or you choose a different path, I'll keep working on becoming the person who can offer that. 🫶</p>
+                    
+                    <p class="final-message">Thank you for reading this. Thank you for being you. 💕</p>
+                </div>
+                
+                <div class="sparkles">✨💖✨</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cursor Trail -->
+    <canvas id="cursorCanvas"></canvas>
+
+    <!-- Fireflies Effect -->
+    <div class="fireflies" id="fireflies"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
